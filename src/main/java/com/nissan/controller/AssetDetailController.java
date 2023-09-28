@@ -1,5 +1,7 @@
 package com.nissan.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +39,11 @@ public class AssetDetailController {
     @DeleteMapping("/delete/{id}")
     public void deleteAssetDetail(@PathVariable Long id) {
         assetDetailService.deleteAssetDetail(id);
+    }
+    
+    @GetMapping("/all")
+    public List<AssetDetail> getAllAssets() {
+        return assetDetailService.getAllAssets();
     }
 }
 

@@ -1,5 +1,7 @@
 package com.nissan.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,10 @@ public class BasicInfoService {
     
     public void deleteBasicInfo(Long nid) {
         basicInfoRepository.deleteById(nid);
+    }
+    
+    public List<BasicInfo> getAllBasicInfo() {
+        return basicInfoRepository.findAll();
     }
 }
 

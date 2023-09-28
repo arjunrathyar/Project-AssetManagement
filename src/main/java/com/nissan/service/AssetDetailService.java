@@ -1,5 +1,7 @@
 package com.nissan.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +33,10 @@ public class AssetDetailService {
     
     public void deleteAssetDetail(Long id) {
         assetDetailRepository.deleteById(id);
+    }
+    
+    public List<AssetDetail> getAllAssets() {
+        // Implementation to retrieve all assets
+        return assetDetailRepository.findAll(); // Assuming you have a repository for assets
     }
 }

@@ -1,5 +1,7 @@
 package com.nissan.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,4 +40,10 @@ public class BasicInfoController {
     public void deleteBasicInfo(@PathVariable Long nid) {
         basicInfoService.deleteBasicInfo(nid);
     }
+    
+    @GetMapping("/all")
+    public List<BasicInfo> getAllBasicInfo() {
+        return basicInfoService.getAllBasicInfo();
+    }
 }
+
