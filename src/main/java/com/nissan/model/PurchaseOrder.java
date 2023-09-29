@@ -12,47 +12,152 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "purchase_det")
+@Table(name = "purchase_order")
 public class PurchaseOrder {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "pd_id", nullable = false)
+	@Column(name = "po_id", nullable = false)
 	private int id;
 
-	@Column(name = "pd_order", nullable = false)
-	private int purchaseOrderNumber;
+	@Column(name = "po_orderNo", nullable = false)
+	private int assetPurchaseOrderNumber;
 
-	@Column(name = "pd_def", nullable = false)
+	@Column(name = "po_def", nullable = false)
 	private int assetDefId;
 	@OneToOne
 	@JoinColumn(name = "assetDefId")
 	AssetDefinition assetDefinition;
-	
-	@Column(name = "pd_type", nullable = false)
+
+	@Column(name = "po_type", nullable = false)
 	private int assetTypeId;
 	@OneToOne
 	@JoinColumn(name = "assetTypeId")
 	AssetType assetType;
 
-	@Column(name = "pd_qty", nullable = false)
-	private int quantity;
+	@Column(name = "po_qty", nullable = false)
+	private int assetQuantity;
 
-	@Column(name = "pd_vid", nullable = false)
-	private int vendorID;
+	@Column(name = "po_vid", nullable = false)
+	private int assetVendorID;
 	@OneToOne
-	@JoinColumn(name = "vendorID")
+	@JoinColumn(name = "assetVendorID")
 	Vendor vendor;
 
-	@Column(name = "pd_date", nullable = false)
-	private LocalDate orderDate;
+	@Column(name = "po_date", nullable = false)
+	private LocalDate assetOrderDate;
 
-	@Column(name = "pd_ddate", nullable = false)
-	private LocalDate deliveryDate;
+	@Column(name = "po_ddate", nullable = false)
+	private LocalDate assetDeliveryDate;
 
-	@Column(name = "pd_status", nullable = false)
-	private int statusID;
+	@Column(name = "po_status", nullable = false)
+	private int assetStatusID;
 	@OneToOne
-	@JoinColumn(name = "statusID")
+	@JoinColumn(name = "assetStatusID")
 	PurchaseStatus status;
+
+	public int getId() {
+		return id;
+	}
+
+	public int getAssetPurchaseOrderNumber() {
+		return assetPurchaseOrderNumber;
+	}
+
+	public int getAssetDefId() {
+		return assetDefId;
+	}
+
+	public AssetDefinition getAssetDefinition() {
+		return assetDefinition;
+	}
+
+	public int getAssetTypeId() {
+		return assetTypeId;
+	}
+
+	public AssetType getAssetType() {
+		return assetType;
+	}
+
+	public int getAssetQuantity() {
+		return assetQuantity;
+	}
+
+	public int getAssetVendorID() {
+		return assetVendorID;
+	}
+
+	public Vendor getVendor() {
+		return vendor;
+	}
+
+	public LocalDate getAssetOrderDate() {
+		return assetOrderDate;
+	}
+
+	public LocalDate getAssetDeliveryDate() {
+		return assetDeliveryDate;
+	}
+
+	public int getAssetStatusID() {
+		return assetStatusID;
+	}
+
+	public PurchaseStatus getStatus() {
+		return status;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setAssetPurchaseOrderNumber(int assetPurchaseOrderNumber) {
+		this.assetPurchaseOrderNumber = assetPurchaseOrderNumber;
+	}
+
+	public void setAssetDefId(int assetDefId) {
+		this.assetDefId = assetDefId;
+	}
+
+	public void setAssetDefinition(AssetDefinition assetDefinition) {
+		this.assetDefinition = assetDefinition;
+	}
+
+	public void setAssetTypeId(int assetTypeId) {
+		this.assetTypeId = assetTypeId;
+	}
+
+	public void setAssetType(AssetType assetType) {
+		this.assetType = assetType;
+	}
+
+	public void setAssetQuantity(int assetQuantity) {
+		this.assetQuantity = assetQuantity;
+	}
+
+	public void setAssetVendorID(int assetVendorID) {
+		this.assetVendorID = assetVendorID;
+	}
+
+	public void setVendor(Vendor vendor) {
+		this.vendor = vendor;
+	}
+
+	public void setAssetOrderDate(LocalDate assetOrderDate) {
+		this.assetOrderDate = assetOrderDate;
+	}
+
+	public void setAssetDeliveryDate(LocalDate assetDeliveryDate) {
+		this.assetDeliveryDate = assetDeliveryDate;
+	}
+
+	public void setAssetStatusID(int assetStatusID) {
+		this.assetStatusID = assetStatusID;
+	}
+
+	public void setStatus(PurchaseStatus status) {
+		this.status = status;
+	}
+
 }
