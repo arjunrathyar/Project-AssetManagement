@@ -13,14 +13,17 @@ import javax.persistence.Table;
 @Table(name = "asset_def")
 public class AssetDefinition {
 
-	@Id
+	@Id//making as primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//Asset Definition Id
 	@Column(name = "ad_id", nullable = false)
 	private int id;
 
+	//Asset Name
 	@Column(name = "ad_name", nullable = false, length = 20)
 	private String assetName;
 
+	//mapping
 	@Column(name = "ad_atid", nullable = false)
 	private int assetTypeId;
 	@ManyToOne
@@ -33,6 +36,7 @@ public class AssetDefinition {
 	@JoinColumn(name = "assetClassId")
 	private AssetClass assetClass;
 
+	//getters and setters
 	public int getId() {
 		return id;
 	}

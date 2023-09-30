@@ -11,14 +11,17 @@ import javax.persistence.Table;
 @Table(name = "asset_class")
 public class AssetClass {
 
-	@Id
+	@Id//making as primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//Asset Class Id
 	@Column(name = "ac_id", nullable = false)
 	private int id;
 
+	//Asset Class
 	@Column(name = "ac_name", nullable = false, length = 10)
 	private String assetClass;
 
+	//getters and setters
 	public int getId() {
 		return id;
 	}
