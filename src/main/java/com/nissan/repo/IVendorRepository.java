@@ -10,9 +10,10 @@ import org.springframework.stereotype.Repository;
 import com.nissan.model.Vendor;
 @Repository
 public interface IVendorRepository extends CrudRepository<Vendor, Integer>{
+	//disable vendor
 	@Modifying
 	@Query("UPDATE com.nissan.model.Vendor SET isActive=0 WHERE id=?1")
-	public void deleteById(Integer id);
+	public void deleteVendorById(Integer id);
 
 	// search by vendor name
 

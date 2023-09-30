@@ -13,7 +13,7 @@ public interface IVendorService {
 	// update by id
 	public Vendor getVendor(int id);
 
-	// delete
+	// disable
 	public void deleteVendor(int id);
 
 	// search by name

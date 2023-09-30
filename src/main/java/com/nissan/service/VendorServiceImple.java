@@ -36,13 +36,13 @@ public class VendorServiceImple implements IVendorService {
 	@Override
 	public Vendor getVendor(int id) {
 		
-		return vendorRepo.findById(id).orElseThrow(()->new RuntimeException("vendorRepo not found for id"+id));
+		return vendorRepo.findById(id).orElseThrow(()->new RuntimeException("vendor not found for id"+id));
 	}
 
 	@Transactional
 	@Override
 	public void deleteVendor(int id) {
-		vendorRepo.deleteById(id);
+		vendorRepo.deleteVendorById(id);
 	}
 
 	@Override

@@ -16,35 +16,46 @@ import javax.persistence.Table;
 public class Vendor {
 	@Id //making as primary key
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//vendor id
 	@Column(name="vd_id")
 	private Integer id;
 	
+	//vendor name
 	@Column(name="vd_name",nullable=false,length=100)
 	private String vendorName;
 	
+	//vendor type
 	@Column(name="vd_type",nullable=false,length=40)
 	private String vendorType;
 	
+	//valid from
 	@Column(name="vd_from")
 	private LocalDate validFrom;
 	
+	//valid to
 	@Column(name="vd_to")
 	private LocalDate validTo;
 	
+	//address
 	@Column(name="vd_addr",nullable=false,length=200)
 	private String address;
 	
 	//check status of vendor
+	@Column(name="vd_active")
 	private boolean isActive=true;
 	
-	private String assetType;
+	//mapping
+	@Column(name="at_id")
+	private String assetTypeId;
 	@ManyToOne
-	@JoinColumn(name="assetType",insertable=false,updatable=false)
-	private AssetDetail assetDetail;
+	@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
+	private AssetType assetType;
 
+	//constructor
 	public Vendor() {
 	}
-
+	
+	//getters and setters
 	public Integer getId() {
 		return id;
 	}
@@ -101,28 +112,33 @@ public class Vendor {
 		this.isActive = isActive;
 	}
 
-	public String getAssetType() {
+	public String getAssetTypeId() {
+		return assetTypeId;
+	}
+
+	public void setAssetTypeId(String assetTypeId) {
+		this.assetTypeId = assetTypeId;
+	}
+
+	public AssetType getAssetType() {
 		return assetType;
 	}
 
-	public void setAssetType(String assetType) {
+	public void setAssetType(AssetType assetType) {
 		this.assetType = assetType;
-	}
-
-	public AssetDetail getAssetDetail() {
-		return assetDetail;
-	}
-
-	public void setAssetDetail(AssetDetail assetDetail) {
-		this.assetDetail = assetDetail;
 	}
 
 	@Override
 	public String toString() {
 		return "Vendor [id=" + id + ", vendorName=" + vendorName + ", vendorType=" + vendorType + ", validFrom="
 				+ validFrom + ", validTo=" + validTo + ", address=" + address + ", isActive=" + isActive
-				+ ", assetType=" + assetType + ", assetDetail=" + assetDetail + "]";
+				+ ", assetTypeId=" + assetTypeId + ", assetType=" + assetType + "]";
 	}
+	
+	
+	
+
+	
 	
 
 	
