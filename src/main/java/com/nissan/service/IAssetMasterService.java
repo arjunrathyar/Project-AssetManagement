@@ -5,7 +5,8 @@ import java.util.List;
 import com.nissan.model.AssetMaster;
 
 public interface IAssetMasterService {
-	//list
+			
+			//list
 			public List<AssetMaster> getNewAsset();
 			
 			//insert
@@ -13,6 +14,10 @@ public interface IAssetMasterService {
 			
 			//search by id
 			public AssetMaster getNewAsset(int id);
+			
+			//disable
+			public void disableAsset(int id);
+			
 			
 			
 
