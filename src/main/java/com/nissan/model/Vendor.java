@@ -45,7 +45,6 @@ public class Vendor {
 	private boolean isActive=true;
 	
 	//mapping
-	@Column(name="at_id")
 	private String assetTypeId;
 	@ManyToOne
 	@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
