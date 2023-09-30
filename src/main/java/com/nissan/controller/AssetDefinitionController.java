@@ -7,15 +7,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/assetDefinitions")
+@RequestMapping("api/assetDefinitions")
 public class AssetDefinitionController {
 
     @Autowired
     private AssetDefinitionService assetDefinitionService;
 
     // Get all asset definitions
-    @GetMapping("/")
+    @GetMapping("/getAllAssetDefinitions")
     public List<AssetDefinition> getAllAssetDefinitions() {
         return assetDefinitionService.getAllAssetDefinitions();
     }
