@@ -26,13 +26,13 @@ public class PurchaseOrder {
 	@Column(name = "po_def", nullable = false)
 	private int assetDefId;
 	@OneToOne
-	@JoinColumn(name = "assetDefId")
+	@JoinColumn(name = "po_def", insertable = false, updatable = false)
 	AssetDefinition assetDefinition;
 
 	@Column(name = "po_type", nullable = false)
 	private int assetTypeId;
 	@OneToOne
-	@JoinColumn(name = "assetTypeId")
+	@JoinColumn(name = "po_type", insertable = false, updatable = false)
 	AssetType assetType;
 
 	@Column(name = "po_qty", nullable = false)
@@ -41,7 +41,7 @@ public class PurchaseOrder {
 	@Column(name = "po_vid", nullable = false)
 	private int assetVendorID;
 	@OneToOne
-	@JoinColumn(name = "assetVendorID")
+	@JoinColumn(name = "po_vid", insertable = false, updatable = false)
 	Vendor vendor;
 
 	@Column(name = "po_date", nullable = false)
@@ -53,7 +53,7 @@ public class PurchaseOrder {
 	@Column(name = "po_status", nullable = false)
 	private int assetStatusID;
 	@OneToOne
-	@JoinColumn(name = "assetStatusID")
+	@JoinColumn(name = "po_status", insertable = false, updatable = false)
 	PurchaseStatus status;
 	
 	private boolean isActive = true;
