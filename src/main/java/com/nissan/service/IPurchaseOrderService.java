@@ -6,12 +6,21 @@ import com.nissan.model.PurchaseOrder;
 
 public interface IPurchaseOrderService {
 
-	PurchaseOrder getPurchaseOrder(int id);
+	// list purchase order
+	public List<PurchaseOrder> getPurchaseOrder();
 
-	Object savePurchaseOrder(PurchaseOrder purchaseOrder);
+	// insert purchase order
+	PurchaseOrder savePurchaseOrder(PurchaseOrder purchaseOrder);
 
-	void deletePurchaseOrder(int id);
+	// get purchase order by id
+	public PurchaseOrder getPurchaseOrder(int id);
+	
+	// update purchase order by id
+	public PurchaseOrder updatePurchaseOrder(PurchaseOrder purchaseOrder, PurchaseOrder customer);
 
-	List<PurchaseOrder> getPurchaseOrder();
+	// delete purchase order
+	public void deletePurchaseOrder(PurchaseOrder purchaseOrder);
+
+	
 
 }

@@ -31,58 +31,73 @@ public class PurchaseOrderController {
 	@Autowired
 	private APIResponse apiresponse;
 
-	@GetMapping("/purchaseOrders")
+	// add purchaseOrder
+	@PostMapping("/purchaseorders")
+	public ResponseEntity<APIResponse> addPurchaseOrder(@RequestBody PurchaseOrder purchaseOrder,
+			@RequestHeader(value = "authorization", defaultValue = "") String auth) throws AccessDeniedException {
+		// jwtUtil.verifyAdmin(auth);
+
+//		if (purchaseOrderService.savePurchaseOrder(purchaseOrder) == null) {
+//			apiresponse.setData("Recheck Name and Mobile No. Details!!");
+//			apiresponse.setStatus(500);
+//			apiresponse.setError("Invalid Details!!");
+//			return ResponseEntity.status(apiresponse.getStatus()).body(apiresponse);
+//		}
+
+		purchaseOrderService.savePurchaseOrder(purchaseOrder);
+		apiresponse.setData("PurchaseOrder added successfully!!");
+		apiresponse.setStatus(200);
+		return ResponseEntity.status(apiresponse.getStatus()).body(apiresponse);
+	}
+
+    // search all purchaseOrders
+	@GetMapping("/purchaseorders")
 	public List<PurchaseOrder> getPurchaseOrder(@RequestHeader(value = "authorization", defaultValue = "") String auth)
 			throws AccessDeniedException {
-		// jwtUtil.verify(auth);
+		// jwtUtil.verifyAdmin(auth);
 		return purchaseOrderService.getPurchaseOrder();
 	}
 
-	@GetMapping("/purchaseOrders/{id}")
-	public PurchaseOrder getPurchaseOrder(@PathVariable int id,
+	// search purchaseOrder by purchaseOrder ID
+	@GetMapping("/purchaseorders/{poID}")
+	public PurchaseOrder getPurchaseOrder(@PathVariable int poID,
 			@RequestHeader(value = "authorization", defaultValue = "") String auth) throws AccessDeniedException {
-		// jwtUtil.verify(auth);
-		return purchaseOrderService.getPurchaseOrder(id);
+		// jwtUtil.verifyAdmin(auth);
+		return purchaseOrderService.getPurchaseOrder(poID);
 	}
 
-	@PostMapping("/purchaseOrders")
-	public ResponseEntity<APIResponse> addPurchaseOrder(@RequestBody PurchaseOrder purchaseOrder,
+	// update purchaseOrder
+	@PutMapping("/purchaseorders/{poID}")
+	public ResponseEntity<APIResponse> updatePurchaseOrder(@PathVariable int poID,
+			@RequestBody PurchaseOrder purchaseOrder,
 			@RequestHeader(value = "authorization", defaultValue = "") String auth) throws AccessDeniedException {
-		// jwtUtil.verify(auth);
-		if (purchaseOrderService.savePurchaseOrder(purchaseOrder) == null) {
-			apiresponse.setData("Name can have only alphabets!!");
-			apiresponse.setStatus(500);
-			apiresponse.setError("Invalid Name");
-
-			return ResponseEntity.status(apiresponse.getStatus()).body(apiresponse);
-		}
-		apiresponse.setData("PurchaseOrder added successfully!!");
-		apiresponse.setStatus(200);
-		return ResponseEntity.status(apiresponse.getStatus()).body(apiresponse);
-	}
-
-	@PutMapping("/purchaseOrders")
-	public ResponseEntity<APIResponse> updatePurchaseOrder(@RequestBody PurchaseOrder purchaseOrder,
-			@RequestHeader(value = "authorization", defaultValue = "") String auth) throws AccessDeniedException {
-		// jwtUtil.verify(auth);
-		if (purchaseOrderService.savePurchaseOrder(purchaseOrder) == null) {
-			apiresponse.setData("Name can have only alphabets!!");
-			apiresponse.setStatus(500);
-			apiresponse.setError("Invalid Name");
-
-			return ResponseEntity.status(apiresponse.getStatus()).body(apiresponse);
-		}
-		apiresponse.setData("PurchaseOrder added successfully!!");
+		// jwtUtil.verifyAdmin(auth);
+		
+		
+//		if (purchaseOrderService.updatePurchaseOrder(purchaseOrderService.getPurchaseOrder(poID),
+//				purchaseOrder) == null) {
+//			apiresponse.setData("Check Mobile No. Details!!");
+//			apiresponse.setStatus(500);
+//			apiresponse.setError("Invalid Details!!");
+//			return ResponseEntity.status(apiresponse.getStatus()).body(apiresponse);
+//		}
+		
+		purchaseOrderService.updatePurchaseOrder(purchaseOrderService.getPurchaseOrder(poID), purchaseOrder);
+		apiresponse.setData("PurchaseOrder updated successfully!!");
 		apiresponse.setStatus(200);
 		return ResponseEntity.status(apiresponse.getStatus()).body(apiresponse);
 
 	}
 
-	@DeleteMapping("/purchaseOrders/{id}")
-	public void deletePurchaseOrder(@PathVariable int id,
+	// disable purchaseOrder
+	@DeleteMapping("/purchaseorders/{poID}")
+	public ResponseEntity<APIResponse> deletePurchaseOrder(@PathVariable int poID,
 			@RequestHeader(value = "authorization", defaultValue = "") String auth) throws AccessDeniedException {
-		// jwtUtil.verify(auth);
-		purchaseOrderService.deletePurchaseOrder(id);
+		// jwtUtil.verifyAdmin(auth);
+		purchaseOrderService.deletePurchaseOrder(purchaseOrderService.getPurchaseOrder(poID));
+		apiresponse.setData("PurchaseOrder deleted successfully!!");
+		apiresponse.setStatus(200);
+		return ResponseEntity.status(apiresponse.getStatus()).body(apiresponse);
 	}
 
 }

@@ -55,6 +55,8 @@ public class PurchaseOrder {
 	@OneToOne
 	@JoinColumn(name = "assetStatusID")
 	PurchaseStatus status;
+	
+	private boolean isActive = true;
 
 	public int getId() {
 		return id;
@@ -158,6 +160,14 @@ public class PurchaseOrder {
 
 	public void setStatus(PurchaseStatus status) {
 		this.status = status;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 }
