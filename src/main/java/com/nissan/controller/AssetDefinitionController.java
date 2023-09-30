@@ -16,31 +16,31 @@ public class AssetDefinitionController {
     private AssetDefinitionService assetDefinitionService;
 
     // Get all asset definitions
-    @GetMapping("/assetDefinitions")
+    @GetMapping("/assetdefinitions")
     public List<AssetDefinition> getAllAssetDefinitions() {
         return assetDefinitionService.getAllAssetDefinitions();
     }
 
     // Get a specific asset definition by ID
-    @GetMapping("/assetDefinitions/{id}")
+    @GetMapping("/assetdefinitions/{id}")
     public AssetDefinition getAssetDefinitionById(@PathVariable int id) {
         return assetDefinitionService.getAssetDefinitionById(id);
     }
 
     // Add a new asset definition
-    @PostMapping("//assetDefinitions")
+    @PostMapping("//assetdefinitions")
     public void addAssetDefinition(@RequestBody AssetDefinition assetDefinition) {
         assetDefinitionService.addAssetDefinition(assetDefinition);
     }
 
     // Update an existing asset definition
-    @PutMapping("/assetDefinitions/{id}")
+    @PutMapping("/assetdefinitions/{id}")
     public void updateAssetDefinition(@PathVariable int id, @RequestBody AssetDefinition assetDefinition) {
         assetDefinitionService.updateAssetDefinition(id, assetDefinition);
     }
 
     // Delete an asset definition by ID
-    @DeleteMapping("/assetDefinitions/{id}")
+    @DeleteMapping("/assetdefinitions/{id}")
     public void deleteAssetDefinition(@PathVariable int id) {
         assetDefinitionService.deleteAssetDefinition(id);
     }
