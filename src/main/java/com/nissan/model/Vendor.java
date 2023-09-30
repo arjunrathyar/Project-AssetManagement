@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,8 +25,6 @@ public class Vendor {
 	@Column(name="vd_type",nullable=false,length=40)
 	private String vendorType;
 	
-	private String assetType;
-	
 	@Column(name="vd_from")
 	private LocalDate validFrom;
 	
@@ -33,6 +33,14 @@ public class Vendor {
 	
 	@Column(name="vd_addr",nullable=false,length=200)
 	private String address;
+	
+	//check status of vendor
+	private boolean isActive=true;
+	
+	private String assetType;
+	@ManyToOne
+	@JoinColumn(name="assetType",insertable=false,updatable=false)
+	private AssetDetail assetDetail;
 
 	public Vendor() {
 	}
@@ -61,14 +69,6 @@ public class Vendor {
 		this.vendorType = vendorType;
 	}
 
-	public String getAssetType() {
-		return assetType;
-	}
-
-	public void setAssetType(String assetType) {
-		this.assetType = assetType;
-	}
-
 	public LocalDate getValidFrom() {
 		return validFrom;
 	}
@@ -93,11 +93,39 @@ public class Vendor {
 		this.address = address;
 	}
 
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public String getAssetType() {
+		return assetType;
+	}
+
+	public void setAssetType(String assetType) {
+		this.assetType = assetType;
+	}
+
+	public AssetDetail getAssetDetail() {
+		return assetDetail;
+	}
+
+	public void setAssetDetail(AssetDetail assetDetail) {
+		this.assetDetail = assetDetail;
+	}
+
 	@Override
 	public String toString() {
-		return "Vendor [id=" + id + ", vendorName=" + vendorName + ", vendorType=" + vendorType + ", assetType="
-				+ assetType + ", validFrom=" + validFrom + ", validTo=" + validTo + ", address=" + address + "]";
+		return "Vendor [id=" + id + ", vendorName=" + vendorName + ", vendorType=" + vendorType + ", validFrom="
+				+ validFrom + ", validTo=" + validTo + ", address=" + address + ", isActive=" + isActive
+				+ ", assetType=" + assetType + ", assetDetail=" + assetDetail + "]";
 	}
+	
+
+	
 	
 	
 
