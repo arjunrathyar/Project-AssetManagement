@@ -9,38 +9,38 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("api/assetDefinitions")
+@RequestMapping("api/")
 public class AssetDefinitionController {
 
     @Autowired
     private AssetDefinitionService assetDefinitionService;
 
     // Get all asset definitions
-    @GetMapping("/getAllAssetDefinitions")
+    @GetMapping("/assetDefinitions")
     public List<AssetDefinition> getAllAssetDefinitions() {
         return assetDefinitionService.getAllAssetDefinitions();
     }
 
     // Get a specific asset definition by ID
-    @GetMapping("/{id}")
+    @GetMapping("/assetDefinitions/{id}")
     public AssetDefinition getAssetDefinitionById(@PathVariable int id) {
         return assetDefinitionService.getAssetDefinitionById(id);
     }
 
     // Add a new asset definition
-    @PostMapping("/")
+    @PostMapping("//assetDefinitions")
     public void addAssetDefinition(@RequestBody AssetDefinition assetDefinition) {
         assetDefinitionService.addAssetDefinition(assetDefinition);
     }
 
     // Update an existing asset definition
-    @PutMapping("/{id}")
+    @PutMapping("/assetDefinitions/{id}")
     public void updateAssetDefinition(@PathVariable int id, @RequestBody AssetDefinition assetDefinition) {
         assetDefinitionService.updateAssetDefinition(id, assetDefinition);
     }
 
     // Delete an asset definition by ID
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/assetDefinitions/{id}")
     public void deleteAssetDefinition(@PathVariable int id) {
         assetDefinitionService.deleteAssetDefinition(id);
     }
