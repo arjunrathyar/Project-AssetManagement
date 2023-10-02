@@ -45,7 +45,7 @@ public class Vendor {
 	private boolean isActive=true;
 	
 	//mapping
-	private String assetTypeId;
+	private int assetTypeId;
 	@ManyToOne
 	@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
 	private AssetType assetType;
@@ -111,13 +111,13 @@ public class Vendor {
 		this.isActive = isActive;
 	}
 
-	public String getAssetTypeId() {
-		return assetTypeId;
-	}
-
-	public void setAssetTypeId(String assetTypeId) {
-		this.assetTypeId = assetTypeId;
-	}
+//	public String getAssetTypeId() {
+//		return assetTypeId;
+//	}
+//
+//	public void setAssetTypeId(String assetTypeId) {
+//		this.assetTypeId = assetTypeId;
+//	}
 
 	public AssetType getAssetType() {
 		return assetType;
@@ -125,6 +125,14 @@ public class Vendor {
 
 	public void setAssetType(AssetType assetType) {
 		this.assetType = assetType;
+	}
+
+	public int getAssetTypeId() {
+		return assetTypeId;
+	}
+
+	public void setAssetTypeId(int assetTypeId) {
+		this.assetTypeId = assetTypeId;
 	}
 
 	@Override
