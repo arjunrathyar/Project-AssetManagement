@@ -16,7 +16,7 @@ public interface IVendorService {
 	public Vendor getVendor(int id);
 
 	// disable
-	public void deleteVendor(int id);
+	public void disableVendor(int id);
 
 	// search by name
 	//public List<Vendor> getVendorByName(String name);

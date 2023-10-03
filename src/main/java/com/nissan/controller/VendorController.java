@@ -1,5 +1,6 @@
 package com.nissan.controller;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -61,17 +63,34 @@ public class VendorController {
 	}
 
 	// update VendorDetails
-	@PutMapping("/vendors")
+	/*@PutMapping("/vendors")
 	public void updateVendor(@RequestBody Vendor vendor) {
 
 		vendorService.saveVendor(vendor);
+
+	}*/
+	@PutMapping("/vendors/edit")
+	public ResponseEntity<APIResponse> updateEmployee(@RequestBody Vendor vendor){
+		//jwtUtil.verify(auth);
+		if (vendorService.saveVendor(vendor) == null) {
+			apiResponse.setData("Name can have only alphabets!");
+			apiResponse.setStatus(500);
+			apiResponse.setError("INVALID NAME");
+
+			return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
+
+		}
+		apiResponse.setData("EMPLOYEE UPDATED SUCCESSFULLY");
+		apiResponse.setStatus(200);
+
+		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 
 	}
 
 	// disable vendor
 	@DeleteMapping("/vendors/{id}")
-	public void deleteVendor(@PathVariable int id) {
-		vendorService.deleteVendor(id);
+	public void disableVendor(@PathVariable int id) {
+		vendorService.disableVendor(id);
 
 	}
 

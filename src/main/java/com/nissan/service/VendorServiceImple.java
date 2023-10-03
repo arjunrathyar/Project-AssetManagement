@@ -39,8 +39,8 @@ public class VendorServiceImple implements IVendorService {
 
 	@Transactional
 	@Override
-	public void deleteVendor(int id) {
-		vendorRepo.deleteVendorById(id);
+	public void disableVendor(int id) {
+		vendorRepo.disableVendor(id);
 	}
 
 //	@Override

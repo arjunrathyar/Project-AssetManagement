@@ -11,7 +11,7 @@ public interface IVendorRepository extends CrudRepository<Vendor, Integer>{
 	//disable vendor
 	@Modifying
 	@Query("UPDATE com.nissan.model.Vendor SET isActive=0 WHERE id=?1")
-	public void deleteVendorById(Integer id);
+	public void disableVendor(Integer id);
 
 	// search by vendor name
 
