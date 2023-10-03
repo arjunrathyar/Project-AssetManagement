@@ -12,22 +12,21 @@ import com.nissan.repo.IVendorRepository;
 
 @Service
 public class VendorServiceImple implements IVendorService {
-	
+
 	@Autowired
 	private IVendorRepository vendorRepo;
-	
+
 	@Autowired
 	private Validation validation;
 
 	@Override
 	public List<Vendor> getVendor() {
-		
 		return (List<Vendor>) vendorRepo.findAll();
 	}
 
 	@Override
 	public Vendor saveVendor(Vendor vendor) {
-		if(validation.isNameValid(vendor.getVendorName())) {
+		if (validation.isNameValid(vendor.getVendorName())) {
 			return vendorRepo.save(vendor);
 		}
 		return null;
@@ -35,8 +34,7 @@ public class VendorServiceImple implements IVendorService {
 
 	@Override
 	public Vendor getVendor(int id) {
-		
-		return vendorRepo.findById(id).orElseThrow(()->new RuntimeException("vendor not found for id"+id));
+		return vendorRepo.findById(id).orElseThrow(() -> new RuntimeException("vendor not found for id" + id));
 	}
 
 	@Transactional
@@ -45,10 +43,10 @@ public class VendorServiceImple implements IVendorService {
 		vendorRepo.deleteVendorById(id);
 	}
 
-	@Override
-	public List<Vendor> getVendorByName(String name) {
-		
-		return vendorRepo.findByVendorName(name);
-	}
+//	@Override
+//	public List<Vendor> getVendorByName(String name) {
+//		
+//		return vendorRepo.findByVendorName(name);
+//	}
 
 }

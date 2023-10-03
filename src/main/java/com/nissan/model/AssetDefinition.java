@@ -27,13 +27,13 @@ public class AssetDefinition {
 	@Column(name = "ad_atid", nullable = false)
 	private int assetTypeId;
 	@ManyToOne
-	@JoinColumn(name = "assetTypeId")
+	@JoinColumn(name = "ad_atid", insertable = false, updatable = false)
 	private AssetType assetType;
 
 	@Column(name = "ad_acid", nullable = false)
 	private int assetClassId;
 	@ManyToOne
-	@JoinColumn(name = "assetClassId")
+	@JoinColumn(name = "ad_acid", insertable = false, updatable = false)
 	private AssetClass assetClass;
 
 	//getters and setters

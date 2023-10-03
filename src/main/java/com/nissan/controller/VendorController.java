@@ -2,7 +2,6 @@ package com.nissan.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -61,7 +60,7 @@ public class VendorController {
 
 	}
 
-	// update Vendor
+	// update VendorDetails
 	@PutMapping("/vendors")
 	public void updateVendor(@RequestBody Vendor vendor) {
 
@@ -77,9 +76,9 @@ public class VendorController {
 	}
 
 	// search by name
-	@GetMapping("/vendors/search/{name}")
-	public List<Vendor> getAllVendorsByName(@PathVariable String name) {
-		return vendorService.getVendorByName(name);
-	}
+//	@GetMapping("/vendors/search/{name}")
+//	public List<Vendor> getAllVendorsByName(@PathVariable String name) {
+//		return vendorService.getVendorByName(name);
+//	}
 
 }

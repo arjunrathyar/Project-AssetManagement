@@ -1,7 +1,9 @@
 package com.nissan.service;
 
 import java.util.List;
+
 import com.nissan.model.Vendor;
+
 
 public interface IVendorService {
 	// list
@@ -17,6 +19,6 @@ public interface IVendorService {
 	public void deleteVendor(int id);
 
 	// search by name
-	public List<Vendor> getVendorByName(String name);
+	//public List<Vendor> getVendorByName(String name);
 
 }

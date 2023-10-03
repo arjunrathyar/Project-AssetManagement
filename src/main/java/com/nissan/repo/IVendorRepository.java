@@ -1,7 +1,5 @@
 package com.nissan.repo;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -18,7 +16,7 @@ public interface IVendorRepository extends CrudRepository<Vendor, Integer>{
 	// search by vendor name
 
 	// custom methods using JPQL query
-	@Query("from Vendor WHERE employeeName like %?1%")
-	public List<Vendor> findByVendorName(String name);
+//	@Query("from Vendor WHERE employeeName like %?1%")
+//	public List<Vendor> findByVendorName(String name);
 
 }

@@ -12,18 +12,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="vendor")
+@Table(name = "vendor")
 public class Vendor {
-	@Id //making as primary key
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	//vendor id
-	@Column(name="vd_id")
-	private Integer id;
-	
-	//vendor name
-	@Column(name="vd_name",nullable=false,length=100)
+	@Id // making as primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// vendor id
+	@Column(name = "vd_id")
+	private Integer vendorId;
+
+	// vendor name
+	@Column(name = "vd_name", nullable = false, length = 100)
 	private String vendorName;
-	
+
 	//vendor type
 	@Column(name="vd_type",nullable=false,length=40)
 	private String vendorType;
@@ -39,9 +39,6 @@ public class Vendor {
 	//address
 	@Column(name="vd_addr",nullable=false,length=200)
 	private String address;
-	//address
-		@Column(name="vd_addr",nullable=false,length=200)
-		private String data;
 		
 	//check status of vendor
 	@Column(name="vd_active")
@@ -56,14 +53,14 @@ public class Vendor {
 	//default constructor
 	public Vendor() {
 	}
-	
+
 	//getters and setters
-	public Integer getId() {
-		return id;
+	public Integer getVendorId() {
+		return vendorId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setVendorId(Integer vendorId) {
+		this.vendorId = vendorId;
 	}
 
 	public String getVendorName() {
@@ -132,19 +129,12 @@ public class Vendor {
 
 	@Override
 	public String toString() {
-		return "Vendor [id=" + id + ", vendorName=" + vendorName + ", vendorType=" + vendorType + ", validFrom="
-				+ validFrom + ", validTo=" + validTo + ", address=" + address + ", isActive=" + isActive
-				+ ", assetTypeId=" + assetTypeId + ", assetType=" + assetType + "]";
+		return "Vendor [vendorId=" + vendorId + ", vendorName=" + vendorName + ", vendorType=" + vendorType
+				+ ", validFrom=" + validFrom + ", validTo=" + validTo + ", address=" + address + ", isActive="
+				+ isActive + ", assetTypeId=" + assetTypeId + ", assetType=" + assetType + "]";
 	}
 	
 	
 	
-
 	
-	
-
-	
-	
-	
-
 }
