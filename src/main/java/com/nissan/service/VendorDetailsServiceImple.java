@@ -7,36 +7,34 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.nissan.common.Validation;
-import com.nissan.model.Vendor;
+import com.nissan.model.VendorDetails;
 import com.nissan.repo.IVendorRepository;
 
 @Service
 public class VendorDetailsServiceImple implements IVendorDetailsService {
-	
+
 	@Autowired
 	private IVendorRepository vendorRepo;
-	
+
 	@Autowired
 	private Validation validation;
 
 	@Override
-	public List<Vendor> getVendor() {
-		
-		return (List<Vendor>) vendorRepo.findAll();
+	public List<VendorDetails> getVendor() {
+		return (List<VendorDetails>) vendorRepo.findAll();
 	}
 
 	@Override
-	public Vendor saveVendor(Vendor vendor) {
-		if(validation.isNameValid(vendor.getVendorName())) {
+	public VendorDetails saveVendor(VendorDetails vendor) {
+		if (validation.isNameValid(vendor.getVendor().getVendorName())) {
 			return vendorRepo.save(vendor);
 		}
 		return null;
 	}
 
 	@Override
-	public Vendor getVendor(int id) {
-		
-		return vendorRepo.findById(id).orElseThrow(()->new RuntimeException("vendor not found for id"+id));
+	public VendorDetails getVendor(int id) {
+		return vendorRepo.findById(id).orElseThrow(() -> new RuntimeException("vendor not found for id" + id));
 	}
 
 	@Transactional
@@ -45,10 +43,10 @@ public class VendorDetailsServiceImple implements IVendorDetailsService {
 		vendorRepo.deleteVendorById(id);
 	}
 
-	@Override
-	public List<Vendor> getVendorByName(String name) {
-		
-		return vendorRepo.findByVendorName(name);
-	}
+//	@Override
+//	public List<VendorDetails> getVendorByName(String name) {
+//		
+//		return vendorRepo.findByVendorName(name);
+//	}
 
 }

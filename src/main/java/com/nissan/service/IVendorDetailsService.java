@@ -1,22 +1,22 @@
 package com.nissan.service;
 
 import java.util.List;
-import com.nissan.model.Vendor;
+import com.nissan.model.VendorDetails;
 
 public interface IVendorDetailsService {
 	// list
-	public List<Vendor> getVendor();
+	public List<VendorDetails> getVendor();
 
 	// Insert
-	public Vendor saveVendor(Vendor vendor);
+	public VendorDetails saveVendor(VendorDetails vendor);
 
 	// update by id
-	public Vendor getVendor(int id);
+	public VendorDetails getVendor(int id);
 
 	// disable
 	public void deleteVendor(int id);
 
 	// search by name
-	public List<Vendor> getVendorByName(String name);
+	//public List<VendorDetails> getVendorByName(String name);
 
 }
