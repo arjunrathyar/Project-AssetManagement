@@ -20,10 +20,6 @@ public class AssetMaster {
 	@Column(name="am_id")
 	private int id;
 	
-	//asset master make
-	@Column(name="am_make",nullable=false,length=40)
-	private String make;
-	
 	//asset master model 
 	@Column(name="am_model",nullable=false,length=40)
 	private String model;
@@ -65,6 +61,8 @@ public class AssetMaster {
 		private AssetType assetType;
 		
 		//mapping to Vendor
+		
+		
 		private Integer vendorId;
 		@OneToOne
 		@JoinColumn(name="vendorId",insertable=false,updatable=false)
@@ -102,17 +100,6 @@ public class AssetMaster {
 	}
 
 
-	
-	//getter of make
-	public String getMake() {
-		return make;
-	}
-
-	//setter of make
-	public void setMake(String make) {
-		this.make = make;
-	}
-	
 	
 	//getter of model
 	public String getModel() {
@@ -187,7 +174,7 @@ public class AssetMaster {
 	//toString
 	@Override
 	public String toString() {
-		return "AssetMaster [id=" + id + ", make=" + make + ", model=" + model + ", serialNo=" + serialNo
+		return "AssetMaster [id=" + id + ", model=" + model + ", serialNo=" + serialNo
 				+ ", yearOfManufacture=" + yearOfManufacture + ", purchaseDate=" + purchaseDate + ", warranty="
 				+ warranty + ", warrantyFrom=" + warrantyFrom + ", warrantyTo=" + warrantyTo + ", isActive=" + isActive
 				+ ", assetTypeId=" + assetTypeId + ", assetType=" + assetType + ", vendorId=" + vendorId + ", vendor="
