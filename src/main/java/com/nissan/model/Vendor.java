@@ -18,7 +18,7 @@ public class Vendor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	// vendor id
 	@Column(name = "vd_id")
-	private Integer vendorId;
+	private Integer id;
 
 	// vendor name
 	@Column(name = "vd_name", nullable = false, length = 100)
@@ -55,16 +55,18 @@ public class Vendor {
 	}
 
 	//getters and setters
-	public Integer getVendorId() {
-		return vendorId;
-	}
-
-	public void setVendorId(Integer vendorId) {
-		this.vendorId = vendorId;
-	}
+	
 
 	public String getVendorName() {
 		return vendorName;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public void setVendorName(String vendorName) {
@@ -129,7 +131,7 @@ public class Vendor {
 
 	@Override
 	public String toString() {
-		return "Vendor [vendorId=" + vendorId + ", vendorName=" + vendorName + ", vendorType=" + vendorType
+		return "Vendor [id=" + id + ", vendorName=" + vendorName + ", vendorType=" + vendorType
 				+ ", validFrom=" + validFrom + ", validTo=" + validTo + ", address=" + address + ", isActive="
 				+ isActive + ", assetTypeId=" + assetTypeId + ", assetType=" + assetType + "]";
 	}
