@@ -2,7 +2,6 @@ package com.nissan.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,35 +15,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nissan.common.APIResponse;
-import com.nissan.model.VendorDetails;
-import com.nissan.service.IVendorDetailsService;
+import com.nissan.model.Vendor;
+import com.nissan.service.IVendorService;
 
 @CrossOrigin
 @RestController // @Controller+@Configuration
 @RequestMapping("/api")
-public class VendorDetailsController {
+public class VendorController {
 	
 	@Autowired
 	private APIResponse apiResponse;
 
 	@Autowired
-	private IVendorDetailsService vendorService;
+	private IVendorService vendorService;
 
 	// list vendors
 	@GetMapping("/vendors")
-	public List<VendorDetails> getVendor() {
+	public List<Vendor> getVendor() {
 		return vendorService.getVendor();
 	}
 
 	// search vendors by id
 	@GetMapping("/vendors/{id}")
-	public VendorDetails getVendor(@PathVariable int id) {
+	public Vendor getVendor(@PathVariable int id) {
 		return vendorService.getVendor(id);
 	}
 
 	// add vendors
 	@PostMapping("/vendors")
-	public ResponseEntity<APIResponse> addVendor(@RequestBody VendorDetails vendor) {
+	public ResponseEntity<APIResponse> addVendor(@RequestBody Vendor vendor) {
 
 		if (vendorService.saveVendor(vendor) == null) {
 			apiResponse.setData("Name can have only alphabets!");
@@ -63,7 +62,7 @@ public class VendorDetailsController {
 
 	// update VendorDetails
 	@PutMapping("/vendors")
-	public void updateVendor(@RequestBody VendorDetails vendor) {
+	public void updateVendor(@RequestBody Vendor vendor) {
 
 		vendorService.saveVendor(vendor);
 
@@ -78,7 +77,7 @@ public class VendorDetailsController {
 
 	// search by name
 //	@GetMapping("/vendors/search/{name}")
-//	public List<VendorDetails> getAllVendorsByName(@PathVariable String name) {
+//	public List<Vendor> getAllVendorsByName(@PathVariable String name) {
 //		return vendorService.getVendorByName(name);
 //	}
 
