@@ -2,6 +2,7 @@ package com.nissan.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,35 +16,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nissan.common.APIResponse;
-import com.nissan.model.Vendor;
-import com.nissan.service.IVendorService;
+import com.nissan.model.VendorDetails;
+import com.nissan.service.IVendorDetailsService;
 
 @CrossOrigin
 @RestController // @Controller+@Configuration
 @RequestMapping("/api")
-public class VendorController {
+public class VendorDetailsController {
 	
 	@Autowired
 	private APIResponse apiResponse;
 
 	@Autowired
-	private IVendorService vendorService;
+	private IVendorDetailsService vendorService;
 
 	// list vendors
 	@GetMapping("/vendors")
-	public List<Vendor> getVendor() {
+	public List<VendorDetails> getVendor() {
 		return vendorService.getVendor();
 	}
 
 	// search vendors by id
 	@GetMapping("/vendors/{id}")
-	public Vendor getVendor(@PathVariable int id) {
+	public VendorDetails getVendor(@PathVariable int id) {
 		return vendorService.getVendor(id);
 	}
 
 	// add vendors
 	@PostMapping("/vendors")
-	public ResponseEntity<APIResponse> addVendor(@RequestBody Vendor vendor) {
+	public ResponseEntity<APIResponse> addVendor(@RequestBody VendorDetails vendor) {
 
 		if (vendorService.saveVendor(vendor) == null) {
 			apiResponse.setData("Name can have only alphabets!");
@@ -60,9 +61,9 @@ public class VendorController {
 
 	}
 
-	// update Vendor
+	// update VendorDetails
 	@PutMapping("/vendors")
-	public void updateVendor(@RequestBody Vendor vendor) {
+	public void updateVendor(@RequestBody VendorDetails vendor) {
 
 		vendorService.saveVendor(vendor);
 
@@ -76,9 +77,9 @@ public class VendorController {
 	}
 
 	// search by name
-	@GetMapping("/vendors/search/{name}")
-	public List<Vendor> getAllVendorsByName(@PathVariable String name) {
-		return vendorService.getVendorByName(name);
-	}
+//	@GetMapping("/vendors/search/{name}")
+//	public List<VendorDetails> getAllVendorsByName(@PathVariable String name) {
+//		return vendorService.getVendorByName(name);
+//	}
 
 }
