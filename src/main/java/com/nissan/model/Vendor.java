@@ -39,10 +39,6 @@ public class Vendor {
 	//address
 	@Column(name="vd_addr",nullable=false,length=200)
 	private String address;
-	
-	//address
-	@Column(name="vd_addr",nullable=false,length=200)
-	private String vendorData;
 		
 	//check status of vendor
 	@Column(name="vd_active")
