@@ -50,7 +50,7 @@ public class Vendor {
 	@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
 	private AssetType assetType;
 
-	//constructor
+	//default constructor
 	public Vendor() {
 	}
 	
