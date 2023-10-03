@@ -28,7 +28,7 @@ public class AssetDefinitionController {
     }
 
     // Add a new asset definition
-    @PostMapping("//assetdefinitions")
+    @PostMapping("/assetdefinitions")
     public void addAssetDefinition(@RequestBody AssetDefinition assetDefinition) {
         assetDefinitionService.addAssetDefinition(assetDefinition);
     }
