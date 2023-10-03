@@ -11,7 +11,7 @@ import com.nissan.model.Vendor;
 import com.nissan.repo.IVendorRepository;
 
 @Service
-public class VendorServiceImple implements IVendorService {
+public class VendorDetailsServiceImple implements IVendorDetailsService {
 	
 	@Autowired
 	private IVendorRepository vendorRepo;

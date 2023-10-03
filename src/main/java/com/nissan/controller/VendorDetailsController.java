@@ -17,18 +17,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nissan.common.APIResponse;
 import com.nissan.model.Vendor;
-import com.nissan.service.IVendorService;
+import com.nissan.service.IVendorDetailsService;
 
 @CrossOrigin
 @RestController // @Controller+@Configuration
 @RequestMapping("/api")
-public class VendorController {
+public class VendorDetailsController {
 	
 	@Autowired
 	private APIResponse apiResponse;
 
 	@Autowired
-	private IVendorService vendorService;
+	private IVendorDetailsService vendorService;
 
 	// list vendors
 	@GetMapping("/vendors")

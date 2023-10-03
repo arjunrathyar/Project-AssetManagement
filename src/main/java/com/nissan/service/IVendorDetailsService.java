@@ -3,7 +3,7 @@ package com.nissan.service;
 import java.util.List;
 import com.nissan.model.Vendor;
 
-public interface IVendorService {
+public interface IVendorDetailsService {
 	// list
 	public List<Vendor> getVendor();
 
