@@ -11,5 +11,9 @@ public interface IPurchaseOrderRepository extends CrudRepository<PurchaseOrder, 
 	
 	@Query("SELECT pOrder FROM PurchaseOrder pOrder WHERE pOrder.assetStatusID = 4")
 	public List<PurchaseOrder> getPendingPurchaseOrder();
+	
+	
+	@Query("SELECT pOrder FROM PurchaseOrder pOrder WHERE pOrder.isActive = true")
+	public List<PurchaseOrder> getPurchaseOrder();
 
 }

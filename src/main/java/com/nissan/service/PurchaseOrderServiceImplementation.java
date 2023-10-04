@@ -32,7 +32,8 @@ public class PurchaseOrderServiceImplementation implements IPurchaseOrderService
 	// Read All Purchase Orders
 	@Override
 	public List<PurchaseOrder> getPurchaseOrder() {
-		return (List<PurchaseOrder>) purchaseOrderRepo.findAll();
+		//return (List<PurchaseOrder>) purchaseOrderRepo.findAll();
+		return (List<PurchaseOrder>) purchaseOrderRepo.getPurchaseOrder();
 	}
 	
 	@Override
