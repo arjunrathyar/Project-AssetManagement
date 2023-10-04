@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -15,12 +17,13 @@ import javax.persistence.Table;
 public class AssetMaster {
 	//asset master id
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)//Auto generate id
 	@Column(name="am_id")
 	private int id;
 	
-	//asset master model 
-	@Column(name="am_model",nullable=false,length=40)
-	private String model;
+	//Model Name
+	@Column(name="am_model",nullable=false,length=20)
+	private String modelName;
 	
 	//serial number
 	@Column(name="am_snumber",nullable=false,length=20)
@@ -44,7 +47,7 @@ public class AssetMaster {
 	
 	//warranty to
 	@Column(name="am_to")
-	private String warrantyTo;
+	private LocalDate warrantyTo;
 	
 	//check the status of Asset
 	@Column(name="am_active")
@@ -52,11 +55,11 @@ public class AssetMaster {
 	
 	//mapping
 	
-		//mapping to AssetType
-		private Integer assetTypeId;
-		@OneToOne
-		@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
-		private AssetType assetType;
+//		//mapping to AssetType
+//		private Integer assetTypeId;
+//		@OneToOne
+//		@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
+//		private AssetType assetType;
 		
 		//mapping to Vendor
 		
@@ -99,15 +102,7 @@ public class AssetMaster {
 
 
 	
-	//getter of model
-	public String getModel() {
-		return model;
-	}
-
-	//setter of model
-	public void setModel(String model) {
-		this.model = model;
-	}
+	
 
 	//getter of serial number
 	public String getSerialNo() {
@@ -159,31 +154,55 @@ public class AssetMaster {
 		this.warrantyFrom = warrantyFrom;
 	}
 
-	//getter of warranty to date
-	public String getWarrantyTo() {
+	
+	
+	public LocalDate getWarrantyTo() {
 		return warrantyTo;
 	}
-
-	//setter of warranty to date
-	public void setWarrantyTo(String warrantyTo) {
+	public void setWarrantyTo(LocalDate warrantyTo) {
 		this.warrantyTo = warrantyTo;
 	}
-	
+	public Integer getAssetDefId() {
+		return assetDefId;
+	}
+	public void setAssetDefId(Integer assetDefId) {
+		this.assetDefId = assetDefId;
+	}
+	public AssetDefinition getAssetDefinition() {
+		return assetDefinition;
+	}
+	public void setAssetDefinition(AssetDefinition assetDefinition) {
+		this.assetDefinition = assetDefinition;
+	}
+	public Integer getVendorId() {
+		return vendorId;
+	}
+	public void setVendorId(Integer vendorId) {
+		this.vendorId = vendorId;
+	}
+	public Vendor getVendor() {
+		return vendor;
+	}
+	public void setVendor(Vendor vendor) {
+		this.vendor = vendor;
+	}
+
+	public String getModelName() {
+		return modelName;
+	}
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
 	//toString
 	@Override
 	public String toString() {
-		return "AssetMaster [id=" + id + ", model=" + model + ", serialNo=" + serialNo
-				+ ", yearOfManufacture=" + yearOfManufacture + ", purchaseDate=" + purchaseDate + ", warranty="
-				+ warranty + ", warrantyFrom=" + warrantyFrom + ", warrantyTo=" + warrantyTo + ", isActive=" + isActive
-				+ ", assetTypeId=" + assetTypeId + ", assetType=" + assetType + ", vendorId=" + vendorId + ", vendor="
-				+ vendor + ", assetDefId=" + assetDefId + ", assetDefinition=" + assetDefinition + "]";
+		return "AssetMaster [id=" + id + ", modelName=" + modelName + ", serialNo=" + serialNo + ", yearOfManufacture="
+				+ yearOfManufacture + ", purchaseDate=" + purchaseDate + ", warranty=" + warranty + ", warrantyFrom="
+				+ warrantyFrom + ", warrantyTo=" + warrantyTo + ", isActive=" + isActive + ", vendorId=" + vendorId
+				+ ", vendor=" + vendor + ", assetDefId=" + assetDefId + ", assetDefinition=" + assetDefinition + "]";
 	}
 	
-
 	
 
-	
-
-	
 	
 }
