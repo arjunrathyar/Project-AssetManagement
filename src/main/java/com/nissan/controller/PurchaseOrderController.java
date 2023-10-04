@@ -57,6 +57,14 @@ public class PurchaseOrderController {
 		// jwtUtil.verifyAdmin(auth);
 		return purchaseOrderService.getPurchaseOrder();
 	}
+	
+	// search all pending purchaseOrders
+		@GetMapping("/pendingpurchaseorders")
+		public List<PurchaseOrder> getPendingPurchaseOrder(@RequestHeader(value = "authorization", defaultValue = "") String auth)
+				throws AccessDeniedException {
+			// jwtUtil.verifyAdmin(auth);
+			return purchaseOrderService.getPendingPurchaseOrder();
+		}
 
 	// search purchaseOrder by purchaseOrder ID
 	@GetMapping("/purchaseorders/{poID}")

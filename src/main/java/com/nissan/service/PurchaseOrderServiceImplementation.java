@@ -34,6 +34,12 @@ public class PurchaseOrderServiceImplementation implements IPurchaseOrderService
 	public List<PurchaseOrder> getPurchaseOrder() {
 		return (List<PurchaseOrder>) purchaseOrderRepo.findAll();
 	}
+	
+	@Override
+	public List<PurchaseOrder> getPendingPurchaseOrder() {
+		// TODO Auto-generated method stub
+		return (List<PurchaseOrder>) purchaseOrderRepo.getPendingPurchaseOrder();
+	}
 
 	// Read Purchase Order by Purchase order ID
 	@Override
@@ -60,5 +66,6 @@ public class PurchaseOrderServiceImplementation implements IPurchaseOrderService
 		purchaseOrder.setActive(false);
 		purchaseOrderRepo.save(purchaseOrder);
 	}
+
 
 }
