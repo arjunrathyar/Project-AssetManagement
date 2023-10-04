@@ -69,7 +69,7 @@ public class VendorController {
 		vendorService.saveVendor(vendor);
 
 	}*/
-	@PutMapping("/vendors/edit")
+	@PutMapping("/vendors")
 	public ResponseEntity<APIResponse> updateEmployee(@RequestBody Vendor vendor){
 		//jwtUtil.verify(auth);
 		if (vendorService.saveVendor(vendor) == null) {
@@ -80,7 +80,7 @@ public class VendorController {
 			return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 
 		}
-		apiResponse.setData("EMPLOYEE UPDATED SUCCESSFULLY");
+		apiResponse.setData("VENDOR UPDATED SUCCESSFULLY");
 		apiResponse.setStatus(200);
 
 		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
