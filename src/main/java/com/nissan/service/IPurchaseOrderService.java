@@ -8,6 +8,9 @@ public interface IPurchaseOrderService {
 
 	// list purchase order
 	public List<PurchaseOrder> getPurchaseOrder();
+	
+	// list pending purchase order
+	public List<PurchaseOrder> getPendingPurchaseOrder();
 
 	// insert purchase order
 	PurchaseOrder savePurchaseOrder(PurchaseOrder purchaseOrder);
@@ -20,6 +23,8 @@ public interface IPurchaseOrderService {
 
 	// delete purchase order
 	public void deletePurchaseOrder(PurchaseOrder purchaseOrder);
+
+	
 
 	
 

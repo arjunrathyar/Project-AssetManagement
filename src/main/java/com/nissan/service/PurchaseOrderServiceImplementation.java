@@ -34,6 +34,12 @@ public class PurchaseOrderServiceImplementation implements IPurchaseOrderService
 	public List<PurchaseOrder> getPurchaseOrder() {
 		return (List<PurchaseOrder>) purchaseOrderRepo.findAll();
 	}
+	
+	@Override
+	public List<PurchaseOrder> getPendingPurchaseOrder() {
+		// TODO Auto-generated method stub
+		return (List<PurchaseOrder>) purchaseOrderRepo.getPendingPurchaseOrder();
+	}
 
 	// Read Purchase Order by Purchase order ID
 	@Override
@@ -41,7 +47,7 @@ public class PurchaseOrderServiceImplementation implements IPurchaseOrderService
 		return purchaseOrderRepo.findById(poID)
 				.orElseThrow(() -> new RuntimeException("PurchaseOrder Not Found with pNo: " + poID));
 	}
-
+ 
 	// Update Purchase Order
 	@Override
 	public PurchaseOrder updatePurchaseOrder(PurchaseOrder purchaseOrder, PurchaseOrder purchaseOrder2) {
@@ -49,7 +55,7 @@ public class PurchaseOrderServiceImplementation implements IPurchaseOrderService
 //			purchaseOrder.setMobileNumber(purchaseOrder2.getMobileNumber());
 //			purchaseOrder.setEmailId(purchaseOrder2.getEmailId());
 //			return purchaseOrderRepo.save(purchaseOrder);
-//		}
+//		} 
 		return null;
 
 	}
@@ -60,5 +66,6 @@ public class PurchaseOrderServiceImplementation implements IPurchaseOrderService
 		purchaseOrder.setActive(false);
 		purchaseOrderRepo.save(purchaseOrder);
 	}
+
 
 }

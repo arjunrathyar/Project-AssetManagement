@@ -29,11 +29,11 @@ public class PurchaseOrder {
 	@JoinColumn(name = "po_def", insertable = false, updatable = false)
 	AssetDefinition assetDefinition;
 
-	@Column(name = "po_type", nullable = false)
-	private int assetTypeId;
-	@OneToOne
-	@JoinColumn(name = "po_type", insertable = false, updatable = false)
-	AssetType assetType;
+//	@Column(name = "po_type", nullable = false)
+//	private int assetTypeId;
+//	@OneToOne
+//	@JoinColumn(name = "po_type", insertable = false, updatable = false)
+//	AssetType assetType;
 
 	@Column(name = "po_qty", nullable = false)
 	private int assetQuantity;
@@ -47,7 +47,7 @@ public class PurchaseOrder {
 	@Column(name = "po_date", nullable = false)
 	private LocalDate assetOrderDate;
 
-	@Column(name = "po_ddate", nullable = false)
+	@Column(name = "po_ddate")
 	private LocalDate assetDeliveryDate;
 
 	@Column(name = "po_status", nullable = false)
@@ -74,13 +74,13 @@ public class PurchaseOrder {
 		return assetDefinition;
 	}
 
-	public int getAssetTypeId() {
-		return assetTypeId;
-	}
-
-	public AssetType getAssetType() {
-		return assetType;
-	}
+//	public int getAssetTypeId() {
+//		return assetTypeId;
+//	}
+//
+//	public AssetType getAssetType() {
+//		return assetType;
+//	}
 
 	public int getAssetQuantity() {
 		return assetQuantity;
@@ -126,13 +126,13 @@ public class PurchaseOrder {
 		this.assetDefinition = assetDefinition;
 	}
 
-	public void setAssetTypeId(int assetTypeId) {
-		this.assetTypeId = assetTypeId;
-	}
-
-	public void setAssetType(AssetType assetType) {
-		this.assetType = assetType;
-	}
+//	public void setAssetTypeId(int assetTypeId) {
+//		this.assetTypeId = assetTypeId;
+//	}
+//
+//	public void setAssetType(AssetType assetType) {
+//		this.assetType = assetType;
+//	}
 
 	public void setAssetQuantity(int assetQuantity) {
 		this.assetQuantity = assetQuantity;
